@@ -14,7 +14,7 @@
 - **Définition d’un budget mensuel**
 - **Graphiques d’analyse** (via Chart.js)
 - **Export PDF** d’un bilan mensuel *(bonus)*
-- **Alertes de dépassement** de budget *(bonus)*
+
 
 ## Technologies utilisées
 
