@@ -1,0 +1,267 @@
+:root {
+    --rose: #f9d5e5;
+    --bleu: #cfe8f3;
+    --vert: #d4f4dd;
+    --texte-foncé: #333;
+    --fond-principal: #fff0f5;
+    --rose-foncé: #e5989b;
+    --blanc: #ffffff;
+    --ombre: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --rayon: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, var(--rose), var(--bleu));
+    color: var(--texte-foncé);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Conteneur principal en grille */
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "dashboard transactions"
+        "charts charts";
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    grid-area: header;
+    background-color: var(--rose-foncé);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Dashboard */
+.dashboard {
+    grid-area: dashboard;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Solde */
+.balance-card {
+    background-color: var(--blanc);
+    padding: 20px;
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre);
+}
+
+.balance-card h2 {
+    color: var(--rose-foncé);
+}
+
+#balance {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 15px 0;
+    color: var(--rose-foncé);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats span:first-child {
+    font-size: 0.9rem;
+    color: gray;
+}
+
+#income {
+    color: var(--vert);
+    font-weight: bold;
+}
+
+#expenses {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Budget */
+.budget-card {
+    background-color: var(--bleu);
+    padding: 20px;
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre);
+}
+
+.budget-card h2 {
+    color: #1e3a5f;
+}
+
+#budget-list {
+    margin-top: 10px;
+}
+
+/* Boutons */
+button {
+    background-color: var(--rose-foncé);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--rayon);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #c95c68;
+}
+
+/* Transactions */
+.transactions {
+    grid-area: transactions;
+    background-color: var(--blanc);
+    padding: 20px;
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre);
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filters select,
+.filters input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--bleu);
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+    background-color: #fce4ec;
+}
+
+#add-transaction-btn {
+    background-color: var(--vert);
+    color: #1d4033;
+}
+
+/* Bouton export */
+.btn-export {
+    background-color: #b388eb;
+    margin-top: 10px;
+}
+.btn-export:hover {
+    background-color: #9a68df;
+}
+
+/* Charts */
+.charts {
+    grid-area: charts;
+    background-color: var(--vert);
+    padding: 20px;
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre);
+}
+
+.chart-container {
+    height: 400px;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.modal-content {
+    background: var(--blanc);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: var(--rayon);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--ombre);
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    color: gray;
+    cursor: pointer;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "dashboard"
+            "transactions"
+            "charts";
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard {
+        flex-direction: column;
+    }
+}
